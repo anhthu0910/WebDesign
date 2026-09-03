@@ -1,86 +1,23 @@
-/* .container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20px;
-} */
-
-:root {
-    font-size: 16px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.h1-title {
+body {
     font-family: "Arial", sans-serif;
-    font-size: 30px;
-    color: blue;
 }
 
-.product {
-    font-family: "Arial", sans-serif;
-    font-size: 30px;
-    color: purple;
-}
-
-.dashboard {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; 
-    gap: 20px;
+header {
     background-color: lightblue;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+#score-form {
+    display: flex;
     justify-content: center;
-    align-items: center;
-    height: 300px;
+    margin-bottom: 20px;
 }
 
-.dashboard .card {
-    font-family: "Arial", sans-serif;
-    font-size: 1.25rem;
-    color: purple;
-
-    width: 150px;
-    height: 50px;
-
-    /* margin: 10px; */
-    padding: 5px;
-    background-color: lightgray;
-
-    border: 2px solid black;
-    border-radius: 10px;
-
-    flex-grow: 1
-}
-
-.dashboard .card:hover {
-    font-family: "Arial", sans-serif;
-    font-size: 1.5rem;
-    color: black;
-}
-
-.container .card {
-    font-style: italic;
-    font-family: "Arial", sans-serif;
-    font-size: 1rem;
-    color: red;
-}
-
-@media screen and (max-width: 768px) {
-    .dashboard {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    :root {
-        font-size: 14px;
-    }
-
-    .dashboard .card{
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
-
+#score-form button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
