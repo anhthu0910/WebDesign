@@ -40,7 +40,12 @@ _next_id: int = 1
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="../frontend"), name="static")
+@app.middleware("http")
+async def add_process_time(request: Request, call_next):
+    start = time.perf_counter()
+    response = await call_next(request)
+    response.headers["X-Process-Time"] = str(time.perf_counter() - start)
+    return response
 
 def _find(item_id: int) -> ItemPublic | None:
     for it in _items:
@@ -176,3 +181,11 @@ def delete_item(item_id: int):
 def predict_house_price(data: HousePriceRequest):
     price = data.area_sqm * 15_000_000 - data.distance_to_center_km * 5_000_000 + data.bedrooms * 20_000_000
     return HousePricePrediction(predicted_price=price, currency="VND")
+
+_cart = []
+
+@app.post("/card/add")
+def addCartItem(item: str):
+    _cart.append(item)
+    return item
+
